@@ -11,6 +11,17 @@
 
     <h1>Painel de Controle Logístico</h1>
 
+    <div class="controls">
+        <label>Transportadora: <select id="filter-transportadora"><option value="">Todas</option></select></label>
+        <label>Região: <select id="filter-regiao"><option value="">Todas</option></select></label>
+        <label>Data Real (de): <input type="date" id="filter-date-start"></label>
+        <label>Data Real (até): <input type="date" id="filter-date-end"></label>
+        <label>Min dias reais: <input type="number" id="filter-min-dias" min="0" value="0"></label>
+        <button id="btn-aplicar">Aplicar filtros</button>
+        <button id="btn-limpar">Limpar filtros</button>
+        <button id="btn-export">Exportar CSV</button>
+    </div>
+
     <div class="kpi-grid">
         <div class="kpi-card">
             <div class="kpi-title">Total de Remessas</div>
@@ -31,6 +42,10 @@
     </div>
 
     <div class="charts-grid">
+        <div class="chart-container">
+            <h2>Top Transportadoras (Atrasos)</h2>
+            <ol id="ranking-transportadoras"></ol>
+        </div>
         <div class="chart-container">
             <h2>Atrasos por Transportadora</h2>
             <canvas id="chartTransportadora"></canvas>

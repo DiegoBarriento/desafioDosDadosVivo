@@ -67,6 +67,16 @@ h1 {
     text-align: center; 
 }
 
+/* Controles de filtro */
+.controls { background: white; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.controls label { font-size: 0.9rem; color: #333; }
+.controls select, .controls input[type="date"], .controls input[type="number"]{ padding:6px 8px; border-radius:6px; border:1px solid #ddd; }
+.controls button{ padding:8px 10px; border-radius:6px; border:none; background:var(--accent); color:white; cursor:pointer; }
+.controls button#btn-limpar{ background:#7f8c8d; }
+.controls button#btn-export{ background:#2ecc71; }
+
+.chart-container ol{ margin:8px 0 0 20px; padding:0; }
+
 /* ---- Tabela de Priorização ---- */
 .table-container {
     background: white;
