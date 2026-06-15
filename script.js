@@ -1,4 +1,4 @@
-// 1. Base de Dados Fictícia (Amostra para fins didáticos)
+// Dados 
 const dadosLogistica = [
     { id: "CNT-8492", transportadora: "Marítima Sul", regiao: "Baixada Santista/SP", diasAtraso: 12 },
     { id: "CNT-1102", transportadora: "RodoRápido", regiao: "Capital/SP", diasAtraso: 3 },
@@ -12,19 +12,17 @@ const dadosLogistica = [
     { id: "CNT-0078", transportadora: "LogExpress", regiao: "Vale do Paraíba", diasAtraso: 0 }
 ];
 
-// 2. Processamento e Cálculos
+// Processamento e Cálculos
 const totalEntregas = dadosLogistica.length;
 const entregasAtrasadas = dadosLogistica.filter(d => d.diasAtraso > 0);
 const entregasNoPrazo = totalEntregas - entregasAtrasadas.length;
 const taxaAtraso = ((entregasAtrasadas.length / totalEntregas) * 100).toFixed(1);
 
-// Atualizar KPIs na tela
 document.getElementById('kpi-total').innerText = totalEntregas;
 document.getElementById('kpi-prazo').innerText = entregasNoPrazo;
 document.getElementById('kpi-atraso').innerText = entregasAtrasadas.length;
 document.getElementById('kpi-taxa').innerText = `${taxaAtraso}%`;
 
-// 3. Preparar dados para os Gráficos
 const contagemTransportadora = {};
 const contagemRegiao = {};
 
@@ -33,7 +31,7 @@ entregasAtrasadas.forEach(d => {
     contagemRegiao[d.regiao] = (contagemRegiao[d.regiao] || 0) + 1;
 });
 
-// Gráfico de Barras: Transportadoras
+// Gráfico de Barras Transportadoras
 new Chart(document.getElementById('chartTransportadora'), {
     type: 'bar',
     data: {
@@ -46,7 +44,7 @@ new Chart(document.getElementById('chartTransportadora'), {
     }
 });
 
-// Gráfico de Rosca: Regiões
+// Gráfico de Rosca Regiões
 new Chart(document.getElementById('chartRegiao'), {
     type: 'doughnut',
     data: {
@@ -58,14 +56,13 @@ new Chart(document.getElementById('chartRegiao'), {
     }
 });
 
-// 4. Preencher Tabela com Priorização (Ordenando do maior atraso para o menor)
+// Preencher Tabela com Priorização 
 const tabela = document.querySelector('#tabela-atrasos tbody');
 
-// Ordenação estratégica: Prioridade para os maiores atrasos
+// Prioridade para atrasos
 entregasAtrasadas.sort((a, b) => b.diasAtraso - a.diasAtraso).forEach(d => {
     const tr = document.createElement('tr');
     
-    // Lógica de Alerta Visual
     let badgeClass = 'bg-warning';
     let statusText = 'Atenção';
     if (d.diasAtraso > 5) {
