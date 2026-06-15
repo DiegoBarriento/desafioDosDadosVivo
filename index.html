@@ -23,13 +23,13 @@
     </div>
 
     <div class="kpi-grid">
-        <div class="kpi-card alert">
-            <div class="kpi-title">Atrasadas</div>
-            <div class="kpi-value" id="kpi-atraso" style="color: var(--danger)">0</div>
-        </div>
         <div class="kpi-card">
             <div class="kpi-title">No Prazo</div>
             <div class="kpi-value" id="kpi-prazo" style="color: var(--success)">0</div>
+        </div>
+        <div class="kpi-card alert">
+            <div class="kpi-title">Atrasadas</div>
+            <div class="kpi-value" id="kpi-atraso" style="color: var(--danger)">0</div>
         </div>
         <div class="kpi-card">
             <div class="kpi-title">Total de Remessas</div>
@@ -38,21 +38,6 @@
         <div class="kpi-card alert">
             <div class="kpi-title">Taxa de Atraso</div>
             <div class="kpi-value" id="kpi-taxa">0%</div>
-        </div>
-    </div>
-
-    <div class="charts-grid">
-        <div class="chart-container">
-            <h2>Top Transportadoras (Atrasos)</h2>
-            <ol id="ranking-transportadoras"></ol>
-        </div>
-        <div class="chart-container">
-            <h2>Atrasos por Transportadora</h2>
-            <canvas id="chartTransportadora"></canvas>
-        </div>
-        <div class="chart-container">
-            <h2>Atrasos por Região (Destino)</h2>
-            <canvas id="chartRegiao"></canvas>
         </div>
     </div>
 
@@ -72,6 +57,23 @@
             </tbody>
         </table>
     </div>
+
+    <div class="charts-grid">
+        <div class="chart-container">
+            <h2>Atrasos por Região (Destino)</h2>
+            <canvas id="chartRegiao"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Atrasos por Transportadora</h2>
+            <canvas id="chartTransportadora"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Top Transportadoras (Atrasos)</h2>
+            <ol id="ranking-transportadoras"></ol>
+        </div>
+    </div>
+
+    
 
     <script src="script.js"></script>
 </body>
